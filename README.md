@@ -1,48 +1,56 @@
 # Autonomous System for Disaster Response: Navigating and Mapping Hazardous Environments
 
-## Objective 
+## Objective  
 
-The goal of this project is to design and implement a complete autonomous system to perform reconnaissance in a simulated disaster environment
+This project focuses on designing and implementing a complete autonomous system to conduct reconnaissance in a simulated disaster environment.
 
-1. **Environment Mapping:** Autonomously generate a detailed occupancy grid map of the unknown environment, aiding in the visualization of the area and planning of safe navigation paths.
+1. **Environment Mapping:** Automatically generate a detailed occupancy grid map of the unknown environment to aid in visualizing the area and planning safe navigation paths.
 
-2. **Victim Location:** Detect simulated victims represented by AprilTags within the environment, providing their ID numbers and precise locations relative to the map.
+2. **Victim Location:** Identify simulated victims, represented by AprilTags, within the environment and provide their ID numbers and precise locations on the map.
 
+---
 
-## Installation
+## Installation  
 
-- Ubuntu
-- Python
-- ROS
+- Ubuntu  
+- Python  
+- ROS  
 
-## Package Installations
+---
 
-- GMapping
-- Cartographer
-- explore_lite
-- apriltag_ros
+## Required Packages  
 
-## Process
+- GMapping  
+- Cartographer  
+- explore_lite  
+- apriltag_ros  
 
-1. **Deploying the Robot:** Place the robot in the unknown environment where it's set to perform the reconnaissance mission.
+---
 
-2. **SLAM with gmapping:** Initiated SLAM using the **gmapping** package to create a real-time map of the environment while simultaneously tracking the robot's position.
+## Process  
 
-3. **Autonomous Exploration:** Implemented the **explore_lite** package for autonomous navigation, guiding the robot to systematically explore the unknown environment using a greedy frontier-based technique.
+1. **Robot Deployment:** The robot is placed in an unknown environment to initiate the reconnaissance mission.  
 
-4. **Map Generation:** Utilized the **explore_lite** package throughout the exploration to continuously update and complete the occupancy grid map of the environment.
+2. **SLAM with GMapping:** The **gmapping** package is used to perform real-time SLAM (Simultaneous Localization and Mapping), creating a map of the environment while tracking the robot's position.  
 
-5. **AprilTags Detection:** Deployed the **apriltag_ros** package to detect AprilTags within the environment, interpreting them as simulated victims, and recorded their global poses.
+3. **Autonomous Exploration:** The **explore_lite** package is implemented for autonomous navigation. This enables the robot to systematically explore the unknown environment using a greedy frontier-based algorithm.  
 
-6. **Final Task:** Concluded the search and mapping operation once the robot has traversed the entire environment and all AprilTags have been detected and logged.
+4. **Map Generation:** The **explore_lite** package is used during exploration to continuously update and complete the occupancy grid map of the environment.  
 
+5. **AprilTags Detection:** The **apriltag_ros** package detects AprilTags within the environment, interprets them as simulated victims, and logs their global poses.  
 
-## Extension: Integrating Cartographer for Enhanced SLAM and AprilTags Detection
+6. **Mission Completion:** The operation concludes once the robot has fully explored the environment and all AprilTags are detected and logged.  
 
-To enhance the SLAM accuracy and reliability, I integrated the Cartographer package, leveraging multi-sensor fusion from LIDAR, IMU, and cameras. This approach improved AprilTags detection and tracking by facilitating robust loop closure, crucial for precise robot localization and orientation in complex environments.
+---
 
-## Conclusion
+## Extension: Enhancing SLAM and AprilTags Detection with Cartographer  
 
-### Conclusion Summary
+To improve SLAM accuracy and reliability, the Cartographer package was integrated into the system. Cartographer uses multi-sensor fusion, incorporating LIDAR, IMU, and camera data, to enhance mapping and localization. This addition improved AprilTags detection and tracking, enabling robust loop closure, which is essential for precise robot positioning and orientation in complex environments.  
 
-The project aimed to autonomously map an environment and detect AprilTags, initially utilizing gmapping and explore_lite with a TurtleBot. Initial attempts mapped the environment successfully but detected only five of seven AprilTags due to limitations in LIDAR settings and field of view. To overcome these challenges, I integrated the Cartographer package, leveraging multi-sensor fusion for enhanced accuracy and reliability in SLAM and AprilTags detection. This enhancement fulfilled our objectives by generating a comprehensive environmental map and ensuring all AprilTags are accurately detected, demonstrating significant progress in our autonomous system's development.
+---
+
+## Conclusion  
+
+### Summary  
+
+This project successfully developed an autonomous system for disaster response, focusing on mapping and victim detection. Initial trials with **gmapping** and **explore_lite** enabled the robot to map the environment accurately but detected only five of seven AprilTags due to limitations in LIDAR settings and field of view. To address these challenges, the Cartographer package was integrated. Its multi-sensor fusion capabilities significantly enhanced SLAM accuracy and reliability, enabling a more comprehensive environmental map and ensuring all AprilTags were accurately detected. This achievement marks substantial progress in the development of autonomous systems for disaster response.  
